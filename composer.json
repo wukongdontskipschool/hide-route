@@ -1,0 +1,29 @@
+{
+    "name": "wukongdontskipschool/hide-route",
+    "description": "local route",
+    "keywords": ["local route"],
+    "homepage": "https://github.com/wukongdontskipschool/hide-route",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wukongdontskipschool\\HideRoute\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "wukongdontskipschool"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "laravel/framework": "*"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wukongdontskipschool\\HideRoute\\HideRouteServiceProvider"
+            ]
+        }
+    }
+}
