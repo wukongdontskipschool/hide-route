@@ -20,6 +20,19 @@ Route::middleware([
  */
 function getMiddleware($group = 'web')
 {
-    $middleware = new \Illuminate\Foundation\Configuration\Middleware();
-    return $middleware->getMiddlewareGroups()[$group];
+    $class = '\Illuminate\Foundation\Configuration\Middleware';
+    if (class_exists($class)) {
+        /** @var \Illuminate\Foundation\Configuration\Middleware $middleware */
+        $middleware = new $class();
+        return $middleware->getMiddlewareGroups()[$group];
+    }
+
+    $class = '\App\Http\Kernel';
+    if (class_exists($class)) {
+        /** @var \App\Http\Kernel $kernel */
+        $kernel = new $class();
+        return $kernel->getMiddlewareGroups()[$group];
+    }
+    
+    return [];
 }
